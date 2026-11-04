@@ -1,8 +1,8 @@
 {
   "qualification": "MSc Computer Science",
   "institution": "University of Hertfordshire, Hatfield",
-  "start": "",
-  "end": "",
+  "start": "September 2025",
+  "end": "October 2026",
   "detail": "Dissertation: demand forecasting and inventory simulation, comparing ARIMA, Random Forest, XGBoost, LSTM and N-BEATS models.",
   "order": 1
 }
