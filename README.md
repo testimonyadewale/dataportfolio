@@ -47,9 +47,13 @@ git push -u origin main
 
 3. Deploy.
 
+The site builds and works at this point, but `/keystatic` on the live site will say it is
+missing configuration until you finish step 4 — that is expected.
+
 ## 4. Turn on editing from the live site (Keystatic GitHub mode)
 
-Keystatic needs a small GitHub App so the editor can commit for you.
+Keystatic needs a small GitHub App so the editor can commit for you. It is created from your
+laptop, then its keys are copied to Vercel.
 
 1. Locally, create `.env.local` with the three `NEXT_PUBLIC_…` values from the table above.
 2. Run `npm run dev` and open http://localhost:3000/keystatic.
