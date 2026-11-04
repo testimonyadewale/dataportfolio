@@ -1,0 +1,15 @@
+{
+  "role": "Data Analyst",
+  "organisation": "TechDrive Limited",
+  "location": "UK",
+  "start": "2026",
+  "end": "",
+  "highlights": [
+    "Build Power BI dashboards and reports from SQL Server, Azure and other sources, using Power Query for ETL and DAX for measures, to guide management decisions.",
+    "Led data extraction, warehousing and analytics initiatives that reduced operating costs by 20%.",
+    "Wrote complex SQL Server scripts (DDL and DML) that increased query automation and accuracy by 94%.",
+    "Directed a GDPR-compliant data migration from on-premises to Azure cloud, using a hybrid Agile/Waterfall approach.",
+    "Improved decision-making efficiency by 25% by presenting complex data clearly, helping stakeholders adjust the migration strategy quickly.",
+    "Migrate three SQL reports into Power BI each week, testing accuracy and quality before publication."
+  ]
+}

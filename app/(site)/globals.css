@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Minimal palette with one bold accent — clean, with a bit of daring. */
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --ink: #16161a;
+  --muted: #5c5c66;
+  --line: #e6e4df;
+  --accent: #e5482b;        /* vermilion: the "daring" note */
+  --accent-ink: #ffffff;
+  --accent-soft: #fdebe6;
+}
+
+.dark {
+  --bg: #0f0f12;
+  --surface: #17171b;
+  --ink: #f2f1ee;
+  --muted: #a3a3ad;
+  --line: #2a2a31;
+  --accent: #ff6a4d;
+  --accent-ink: #16161a;
+  --accent-soft: #2b1814;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Long-form text from Keystatic (case studies, blog posts, story). */
+.prose-content {
+  line-height: 1.75;
+  color: var(--ink);
+}
+.prose-content * + :is(p, ul, ol, blockquote, pre, table, img, h2, h3) { margin-top: 1.1em; }
+.prose-content h2 { font-size: 1.5rem; font-weight: 650; margin-top: 2em; letter-spacing: -0.01em; }
+.prose-content h3 { font-size: 1.2rem; font-weight: 600; margin-top: 1.6em; }
+.prose-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.prose-content ul { list-style: disc; padding-left: 1.4em; }
+.prose-content ol { list-style: decimal; padding-left: 1.4em; }
+.prose-content li + li { margin-top: 0.35em; }
+.prose-content blockquote { border-left: 3px solid var(--accent); padding-left: 1em; color: var(--muted); }
+.prose-content code { font-family: var(--font-mono); font-size: 0.9em; background: var(--accent-soft); padding: 0.1em 0.35em; border-radius: 4px; }
+.prose-content pre { background: var(--surface); border: 1px solid var(--line); padding: 1em; border-radius: 10px; overflow-x: auto; }
+.prose-content pre code { background: none; padding: 0; }
+.prose-content img { border-radius: 10px; border: 1px solid var(--line); }
+.prose-content table { width: 100%; border-collapse: collapse; font-size: 0.95em; }
+.prose-content th, .prose-content td { border-bottom: 1px solid var(--line); padding: 0.5em 0.6em; text-align: left; }
