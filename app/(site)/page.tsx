@@ -65,9 +65,6 @@ export default async function Home() {
             <Link href="/projects" className="rounded-full bg-accent px-6 py-3 font-medium text-accent-ink hover:opacity-90">
               See my work
             </Link>
-            <Link href="/#resume" className="rounded-full border border-line px-6 py-3 font-medium hover:border-ink">
-              View CV
-            </Link>
           </div>
         </div>
 
@@ -221,27 +218,6 @@ export default async function Home() {
           )}
         </Section>
       )}
-
-      {/* ---------- CV (inline only) ---------- */}
-      <Section id="resume" eyebrow="CV" title="My CV">
-        {settings.resume ? (
-          <div className="overflow-hidden rounded-2xl border border-line bg-surface">
-            <iframe
-              src={`${settings.resume}#view=FitH&toolbar=0`}
-              title={`${settings.name} CV`}
-              className="h-[80vh] min-h-[600px] w-full"
-            />
-          </div>
-        ) : (
-          <div className="grid h-64 place-items-center rounded-2xl border border-dashed border-line text-center text-muted">
-            <p>
-              Your CV will appear here.
-              <br />
-              <span className="text-sm">Upload the PDF in /keystatic → Site settings.</span>
-            </p>
-          </div>
-        )}
-      </Section>
 
       {/* ---------- Insights ---------- */}
       <Section
