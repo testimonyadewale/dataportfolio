@@ -1,24 +1,130 @@
 ---
 title: Demand Forecasting & Inventory Simulation
 summary: >-
-  MSc dissertation project: forecasting demand with five models, then
-  simulating how each forecast would change stock levels and costs.
+  Development and Evaluation of a Machine Learning Demand Forcasting System for
+  Reducing Food Waste and Stockout Incidents in UK Grocery Retail
 featured: true
 order: 1
 industry: Retail
 tools:
   - python
   - power-bi
-keyResult: '[Add your headline result, e.g. "Best model cut forecast error by X% vs ARIMA"]'
-problem: >-
-  [What business problem were you solving? Who loses money or time when demand
-  is forecast badly?]
-data: '[Dataset: source, size, time span, and the cleaning it needed.]'
+keyResult: >-
+  [Add your heXGBoost forecast daily grocery demand 33% more accurately than a
+  simple moving average. In simulation, that meant 30.4% less food waste and
+  35.9% fewer stockouts.adline result, e.g. "Best model cut forecast error by X%
+  vs ARIMA"]
+problem: >
+  Large supermarket chains spend a lot of money on forecasting. Many smaller and
+  medium sized shops do not. They still decide what to reorder based on recent
+  sales averages. This approach is simple and cheap, but it is blind to the
+  things that actually move grocery demand, such as the season, promotions, and
+  normal week to week changes. Machine learning handles these patterns much
+  better, and a large amount of research has shown it produces more accurate
+  forecasts than simple averaging.
+
+  But there is a gap in this research. Most studies compare models against each
+  other, report accuracy scores, and stop there. They rarely ask the question a
+  retailer would actually care about. If the forecast is more accurate, are the
+  orders that follow from it actually any better? Accuracy is treated as the end
+  result, instead of being treated as one input into a decision. This project is
+  built to close that gap for UK grocery retail specifically.
+
+
+  The problem is can a machine learning demand forecasting system reduce food
+  waste and stockout incidents in UK grocery retail, and which forecasting
+  approach performs best inside a system like this?
+data: >-
+  Source: Store Item Demand Forecasting Challenge (Kaggle, 2018). It’s a public
+  dataset made for testing forecasting models.
+
+
+  Size: 913,000 rows of daily sales for 50 products across 10 stores, which is
+  500 store-product combinations.
+
+
+  Time span: five years of daily sales, from 1 January 2013 to 31 December 2017.
+
+
+  What’s in it: four columns: date, store, item and units sold.
+
+
+  Cleaning and preparation:
+
+
+  Dates: I turned the date column into a proper date format and sorted the rows
+  by store, item and date, so each product’s sales ran in order.
+
+  Features: I built 18 features from the raw sales:
+
+  lag values, meaning what sold 1, 7 or 365 days earlier
+
+  rolling averages
+
+  calendar details: day of the week, week of the year, month, quarter, year and
+  whether it was a weekend
+
+  Dropped rows: the 365-day lag needs a full year of history, so the first year
+  of every store-product series had gaps. Removing those gaps dropped 182,500
+  rows, which is about 20% of the data. That’s 500 series × 365 days, and it
+  left 730,500 rows for modelling.
+
+  Train/test split: I split the data by date, using the first 80% of the
+  timeline for training and the last 20% for testing. A random split would have
+  let the models “see the future”.
+
+
+  Limitations of the data: the dataset is synthetic and very regular. It has no
+  prices, promotions, weather or holiday effects, so real shop data will be
+  noisier.
+
+
+  Supporting dataset: UCI Online Retail II (Chen, 2012) holds real transactions
+  from a UK-based online retailer, covering December 2009 to December 2011. I
+  used it as a second test to see how the system copes with real, messy UK
+  retail data.
 approach: >-
-  Compared ARIMA, Random Forest, XGBoost, LSTM and N-BEATS forecasts, fed them
-  into an inventory simulation, and built a Flask web app and a Power BI
-  dashboard so non-technical users could explore the results.
-results: '[Which model won, by how much, and what it means for stock decisions.]'
+  Compared ARIMA, Random Forest, XGBoost forecasts, fed them into an inventory
+  simulation, and built a Flask web app and a Power BI dashboard so
+  non-technical users could explore the results.
+results: >-
+  XGBoost was the best model. Its average forecast error (MAE) was 6.17 units a
+  day. The simple moving average, which is close to how many shops order today,
+  was off by 9.24 units a day. That makes XGBoost 33.2% more accurate than the
+  baseline
+
+
+  Random Forest came a close second. Both machine learning models did much
+  better than the simple average because they learn weekly patterns, seasonal
+  trends and recent sales together. An R² of 0.935 means XGBoost explained about
+  93.5% of the day-to-day change in sales.
+
+
+  ARIMA was only run on one product in one store, so its scores can’t be fairly
+  compared with the others.
+
+
+  What it means for stock
+
+
+  Forecast accuracy only matters if it changes what ends up on the shelf. So I
+  ran an inventory simulation that placed orders using each model’s forecasts
+  and compared the results against the baseline:
+
+
+  Waste: surplus stock fell from 834,085 to 580,836 units, which is 30.4% less
+  simulated food waste.
+
+  Stockouts: unmet demand fell from 851,730 to 545,935 units, which is 35.9%
+  fewer simulated stockouts.
+
+
+  Better forecasts improved both problems at the same time. Shops usually trade
+  one against the other: order more and you waste more, order less and you run
+  out. Here the shelves held less of what nobody wanted and more of what people
+  came in for
+cover: /images/projects/demand-forecasting-and-inventory-simulation/cover.png
+githubUrl: https://github.com/testimonyadewale/msc-grocery-forecasting
 status: complete
 ---
 Use this space for the full case study: charts, screenshots of the Power BI dashboard, what surprised you, and what you'd do next.
