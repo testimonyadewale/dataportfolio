@@ -16,9 +16,6 @@ tools:
   - null
   - null
   - null
-keyResult: >-
-  The Pre-Pandemic Baseline generated the highest revenue while the US-Iran War
-  generated the lowest.
 problem: >-
   Help understand how geopolitical conflict and oil price shocks have affected
   airline industry data. Use SQL to query the data and build a Power BI
@@ -78,6 +75,35 @@ results: >-
   disruption of any category across the full period: 53,704 flight cancellations
   and 28 airspace closures. Economic events came second at 48,197 cancellations.
   Operational disruptions third at 26,532.
+cover: /images/projects/airline-fuel-analysis/cover.png
 status: in-progress
 ---
-Write-up coming soon.
+**PROJECT OVERVIEW**: An end-to-end data analytics project investigating how geopolitical conflict and oil price shocks impacted the global airline industry across six years of turbulence, from the pre-pandemic era through COVID-19, the Ukraine War, and the 2025 US-Iran conflict.
+
+**TOOLS USED**: Microsoft Excel: Data cleaning, pivot tables, exploratory analysis SQL Server: 20 analytical queries across 6 relational tables Power BI: 6-page interactive dashboard GitHub: Version control & portfolio hosting
+
+**DATASET**: 6 CSV files covering 2019–2025 Approximately 28,000 rows across 20+ columns per table Tables: Airline Financial Impact, Ticket Prices, Conflict Events, Fuel Surcharges, Oil & Jet Fuel Prices, Route Cost Impact
+
+**KEY FINDINGS**: 1 — The Pre-Pandemic Baseline generated the highest revenue while the US-Iran War generated the lowest. 2019 was the healthiest year the industry has seen in this dataset. Total revenue of $522,750M and a 9.18% average profit margin (numbers that would have seemed ordinary at the time). The US-Iran War Conflict produced $75,164M in revenue and a -14.21% margin. That is an 85.6% revenue collapse between the best and worst phases in this dataset. COVID was harder on margin (-33.45%), but it unfolded over months. The US-Iran War produced similar financial damage in a fraction of the time.
+
+2 — Jet fuel hit $166.89 per barrel during the US-Iran War. Pre-pandemic it was $74.82. Pre-pandemic, jet fuel averaged $74.82 per barrel. During COVID it dropped to $58.84 because nobody was flying so the demand plummeted too, then a steady climb through Ukraine, a period of stabilisation, Gaza, and the Iran build-up until the US-Iran War brought it to $166.89. Four months in the dataset saw the Strait of Hormuz disrupted but Brent averaged $144.48 during those months versus $77.09 across all the rest. That is what an 87% price premium looks like when a single chokepoint closes. The two worst single-event spikes were Russia invading Ukraine (+31.3%) and the US-Israeli strikes on Iranian nuclear sites (+31.1%). Both rated Extreme. Both moved markets within days.
+
+3 — The average ticket cost $2,660 during the US-Iran War. The fuel surcharge alone was $406. Pre-pandemic the average ticket was $1,017 with a $75 surcharge, that is, 7.4% of the fare. During the US-Iran War the fare reached $2,660 and the surcharge hit $406, now 15.3% of the total. The base fare more or less doubled. The surcharge rose 440%. Airlines were not just charging more they were restructuring how much of the cost showed up as fuel versus fare. Every crisis pushed that ratio further. By the US-Iran phase, passengers were paying a fuel surcharge on more than one dollar in every seven. On the ticket price trend: 2020 saw a 53.2% fall year-on-year, then a 148.7% jump in 2021. Nothing else in the dataset comes close to that two-year swing.
+
+4 — The US-Iran War disrupted 36.1% of all routes and generated $493,842 in unplanned fuel costs. For most of the dataset, routes ran as scheduled. The Ukraine War caused 16 cancellations, that is, 4.4% of its routes. The US-Iran War was a different problem: 52 cancellations, 116 reroutes, a 36.1% disruption rate. Those rerouted flights added 1,056 km on average each, running up $493,842 in fuel costs nobody budgeted for. The Airbus A350-900ULR burns 211 barrels per flight normally. Add 1,000-plus kilometres and that number skyrockets. The Ukraine War pushed European carriers around Russian airspace. The US-Iran War cut through the Middle Eastern corridors that connect most long-haul routes globally.
+
+5 — North America earned more than any other region. Africa had the strongest profit margin. Revenue order: North America $1,014,150M, Europe $682,520M, Middle East $438,968M, Asia $358,580M, Africa $41,727M. Margin order: Africa +0.82%, North America -0.04%, Europe -0.05%, Middle East -0.16%, Asia -0.47%. North America put $1 trillion through its airlines and ended up roughly at zero. Africa put through $42 billion and kept 0.82 cents of every dollar it earned. Some of that is lower operating costs, some is domestic route protection, some is less exposure to the corridors that conflict disrupted most. Whatever the reason, the margin gap is hard to ignore. Military events caused the most disruption of any category across the full period: 53,704 flight cancellations and 28 airspace closures. Economic events came second at 48,197 cancellations. Operational disruptions third at 26,532.
+
+**REPOSITORY STRUCTURE**:
+
+sql: All 20 SQL queries with comments and section headers
+
+Power BI dashboard page screenshots and a 6-page power BI interactive file
+
+SKILLS DEMONSTRATED:
+
+- Data cleaning
+- Exploratory data analysis
+- SQL aggregation, JOINs, subqueries,
+- DAX measures and data modelling in Power BI
+- Business storytelling through data visualisation
